@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DestinationSelectionRouter: BaseRouter, DestinationSelectionRouterInput {
+final class DestinationSelectionRouter: BaseRouter, DestinationSelectionRouterInput {
     
     func routeToMapController(startModel: CityViewModel, destinationModel: CityViewModel) {
         let controller = MapAssembly().configureModule(startCity: startModel, destinationCity: destinationModel)

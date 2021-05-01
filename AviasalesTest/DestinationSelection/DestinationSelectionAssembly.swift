@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationSelectionAssembly {
+final class DestinationSelectionAssembly {
 
     func configureModule() -> UIViewController {
         let controller = DestinationSelectionController()

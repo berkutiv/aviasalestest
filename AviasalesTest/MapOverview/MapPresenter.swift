@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class MapPresenter {
+final class MapPresenter {
 
     weak var view: MapViewInput!
     var router: MapRouterInput!

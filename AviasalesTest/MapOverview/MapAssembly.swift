@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MapAssembly {
+final class MapAssembly {
 
     func configureModule(startCity: CityViewModel, destinationCity: CityViewModel) -> UIViewController {
         let controller = MapViewController()

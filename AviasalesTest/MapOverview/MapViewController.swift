@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController {
     private(set) lazy var customView = view as! MapView
     var output: MapViewOutput!
 
@@ -80,7 +80,6 @@ extension MapViewController: MapViewInput {
         }
 
         customView.mapView.setRegion(region, animated: true)
-
         updatePlanePosition()
     }
 

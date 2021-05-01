@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class CityViewModel {
+final class CityViewModel {
     var name: String
     var iata: String?
     var airportName: String?

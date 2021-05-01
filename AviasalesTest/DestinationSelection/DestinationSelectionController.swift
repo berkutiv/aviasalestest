@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationSelectionController: UIViewController {
+final class DestinationSelectionController: UIViewController {
     private(set) lazy var customView = view as! DestinationSelectionView
 
     var output: DestinationSelectionViewOutput!
@@ -33,9 +33,6 @@ class DestinationSelectionController: UIViewController {
         customView.destinationTextField.addTarget(self, action: #selector(destinationTextChanged), for: .editingChanged)
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @objc private func destinationTextChanged() {
@@ -49,7 +46,6 @@ class DestinationSelectionController: UIViewController {
     @objc private func handleScreenTap() {
         view.endEditing(true)
     }
-
 }
 
 extension DestinationSelectionController: DestinationSelectionViewInput {
@@ -66,7 +62,6 @@ extension DestinationSelectionController: DestinationSelectionViewInput {
         customView.activityIndicator.stopAnimating()
         customView.tableView.reloadData()
     }
-
 }
 
 extension DestinationSelectionController: UITableViewDataSource, UITableViewDelegate {
@@ -87,22 +82,5 @@ extension DestinationSelectionController: UITableViewDataSource, UITableViewDele
         tableView.deselectRow(at: indexPath, animated: true)
         let model = dataSource[indexPath.row]
         output.didSelectCity(cityModel: model)
-    }
-}
-
-extension DestinationSelectionController {
-    @objc func keyboardWillShow(notification: Notification) {
-        guard
-            let userInfo = notification.userInfo,
-            let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
-                return
-        }
-
-        let keyboardFrame = keyboardSize.cgRectValue
-        customView.tableView.contentInset.bottom = keyboardFrame.height
-    }
-
-    @objc func keyboardWillHide(notification: Notification) {
-        customView.tableView.contentInset.bottom = 0
     }
 }

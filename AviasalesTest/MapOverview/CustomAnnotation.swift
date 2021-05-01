@@ -14,7 +14,7 @@ enum CustomAnnotationType: String {
     case plane
 }
 
-class CustomAnnotation: NSObject, MKAnnotation {
+final class CustomAnnotation: NSObject, MKAnnotation {
     dynamic var coordinate: CLLocationCoordinate2D
     var type: CustomAnnotationType
     var image: UIImage?

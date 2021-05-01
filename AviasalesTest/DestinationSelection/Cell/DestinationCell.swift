@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationCell: UITableViewCell {
+final class DestinationCell: UITableViewCell {
 
     static let reuseIdentifier = "destination_cell"
 

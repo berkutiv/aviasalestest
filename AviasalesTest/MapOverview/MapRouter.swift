@@ -7,6 +7,6 @@
 
 import Foundation
 
-class MapRouter: BaseRouter, MapRouterInput {
+final class MapRouter: BaseRouter, MapRouterInput {
     
 }

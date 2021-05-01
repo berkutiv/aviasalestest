@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DestinationSelectionView: UIView {
+final class DestinationSelectionView: UIView {
 
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)

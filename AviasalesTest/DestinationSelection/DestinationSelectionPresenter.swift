@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-class DestinationSelectionPresenter {
+final class DestinationSelectionPresenter {
 
     weak var view: DestinationSelectionViewInput!
     var router: DestinationSelectionRouterInput!
