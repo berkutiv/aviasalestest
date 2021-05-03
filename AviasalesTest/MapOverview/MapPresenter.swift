@@ -10,22 +10,24 @@ import MapKit
 
 final class MapPresenter {
 
+    // MARK: - Public Properties
+
     weak var view: MapViewInput!
     var router: MapRouterInput!
+
+    // MARK: - Private Properties
+
     private var startCity: CityViewModel
     private var destinationCity: CityViewModel
 
-    init(startCity: CityViewModel, destinationCity: CityViewModel) {
-        self.startCity = startCity
-        self.destinationCity = destinationCity
-    }
-}
+    // MARK: - Initializers
 
-extension MapPresenter: MapViewOutput {
-
-    func viewDidLoad() {
-        createMapItems()
+    init(mapInputModel: MapInputModel) {
+        self.startCity = mapInputModel.startCity
+        self.destinationCity = mapInputModel.destinationCity
     }
+
+    // MARK: - Private Methods
 
     private func createMapItems() {
         let startCityImage = createCityView(with: startCity.iata)
@@ -42,7 +44,9 @@ extension MapPresenter: MapViewOutput {
         let span = MKCoordinateSpan(latitudeDelta: 50, longitudeDelta: 50)
         let region = MKCoordinateRegion(center: startCity.coordinates, span: span)
 
-        view.setAnnotations(polyline: polyline, annotations: [startCityAnnotation, destinationCityAnnotation, planeAnnotation], region: region)
+        let mapRenderingComponents = MapRenderingComponents(polyline: polyline, region: region, cityAnnotations: [startCityAnnotation, destinationCityAnnotation], planeAnnotation: planeAnnotation)
+
+        view.setMapComponents(mapRenderingComponents: mapRenderingComponents)
     }
 
     private func createCityView(with iata: String?) -> UIImage {
@@ -64,6 +68,16 @@ extension MapPresenter: MapViewOutput {
         view.layer.masksToBounds = true
 
         return view.asImage()
+    }
+
+}
+
+// MARK: - MapViewOutput
+
+extension MapPresenter: MapViewOutput {
+
+    func viewDidLoad() {
+        createMapItems()
     }
 
 }

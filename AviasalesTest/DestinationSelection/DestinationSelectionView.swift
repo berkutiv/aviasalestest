@@ -9,6 +9,8 @@ import UIKit
 
 final class DestinationSelectionView: UIView {
 
+    // MARK: - Private Properties
+
     private(set) lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
 
@@ -32,6 +34,8 @@ final class DestinationSelectionView: UIView {
         return activityIndicator
     }()
 
+    // MARK: - Initializers
+
     init() {
         super.init(frame: .zero)
         setup()
@@ -41,6 +45,8 @@ final class DestinationSelectionView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Private methods
 
     private func setup() {
         backgroundColor = .white
@@ -63,4 +69,5 @@ final class DestinationSelectionView: UIView {
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+
 }

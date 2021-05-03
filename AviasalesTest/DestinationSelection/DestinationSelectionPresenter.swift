@@ -10,16 +10,30 @@ import MapKit
 
 final class DestinationSelectionPresenter {
 
+    // MARK: - Public Properties
+
     weak var view: DestinationSelectionViewInput!
     var router: DestinationSelectionRouterInput!
+    var client: NetworkService
+
+    // MARK: - Private Properties
+
     private var urlRequest: URLSessionDataTask?
+    private let spCoordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(59.56), longitude: CLLocationDegrees(30.18))
+
+    init(client: NetworkService) {
+        self.client = client
+    }
+    
 }
+
+// MARK: - DestinationSelectionViewOutput
 
 extension DestinationSelectionPresenter: DestinationSelectionViewOutput {
 
     func didChangeText(to text: String?) {
         urlRequest?.cancel()
-        urlRequest = NetworkService.places(text: text ?? "") { [weak self] result in
+        urlRequest = client.places(text: text ?? "") { [weak self] result in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 switch result {
@@ -34,8 +48,8 @@ extension DestinationSelectionPresenter: DestinationSelectionViewOutput {
     }
 
     func didSelectCity(cityModel: CityViewModel) {
-        let coordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(59.56), longitude: CLLocationDegrees(30.18))
-        let startCity = CityViewModel(name: "Saint-Petersburg", iata: "LED", airportName: "Pulkovo", coordinates: coordinates)
-        router.routeToMapController(startModel: startCity, destinationModel: cityModel)
+        let spCityViewModel = CityViewModel(name: "Saint-Petersburg", iata: "LED", airportName: "Pulkovo", coordinates: spCoordinates)
+        router.routeToMapController(startModel: spCityViewModel, destinationModel: cityModel)
     }
+
 }

@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct CityModel: Codable {
+struct CityModel: Decodable {
     let name: String
     let iata: String?
     let airportName: String?
     let location: Coordinates
 }
 
-struct Coordinates: Codable {
+struct Coordinates: Decodable {
     let lat: Double
     let lon: Double
 }

@@ -26,14 +26,14 @@ extension ServiceManager {
                   let decodedModel = try? decoder.decode(T.self, from: data) else {
                 let error: ErrorModel = ErrorModel(ErrorKey.parsing.rawValue)
 
-                completion(Result.failure(error))
+                completion(.failure(error))
                 return
             }
 
-            completion(Result.success(decodedModel))
-
+            completion(.success(decodedModel))
         }
         task.resume()
         return task
     }
+    
 }

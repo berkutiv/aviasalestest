@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Constants {
-    class NetworkPaths {
-        static let places = "places"
+enum Constants {
+    enum NetworkPaths: String {
+        case places = "places"
     }
 }

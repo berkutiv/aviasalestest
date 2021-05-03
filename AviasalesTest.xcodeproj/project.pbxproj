@@ -17,6 +17,8 @@
 		75530AD6263DE06E003083E3 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75530AD5263DE06E003083E3 /* CustomAnnotation.swift */; };
 		75530AD9263DEC8B003083E3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75530AD8263DEC8B003083E3 /* Colors.swift */; };
 		75530ADD263DF165003083E3 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75530ADC263DF165003083E3 /* UIView+Extensions.swift */; };
+		75530AE1263F5A5B003083E3 /* MapInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75530AE0263F5A5B003083E3 /* MapInputModel.swift */; };
+		75530AE5263F610B003083E3 /* MapRenderingComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75530AE4263F610B003083E3 /* MapRenderingComponents.swift */; };
 		7573CE6F263D52A30097AAA0 /* DestinationSelectionAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573CE6E263D52A30097AAA0 /* DestinationSelectionAssembly.swift */; };
 		7573CE73263D52AE0097AAA0 /* DestinationSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573CE72263D52AE0097AAA0 /* DestinationSelectionController.swift */; };
 		7573CE76263D52B60097AAA0 /* DestinationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573CE75263D52B60097AAA0 /* DestinationSelectionView.swift */; };
@@ -26,12 +28,11 @@
 		7573CE83263D56510097AAA0 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573CE82263D56510097AAA0 /* BaseRouter.swift */; };
 		7588D676263D64870083C03F /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D675263D64870083C03F /* ServiceManager.swift */; };
 		7588D67A263D64B30083C03F /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D679263D64B30083C03F /* RequestModel.swift */; };
-		7588D67D263D64D60083C03F /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D67C263D64D60083C03F /* ResponseModel.swift */; };
 		7588D680263D64EA0083C03F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D67F263D64EA0083C03F /* NetworkService.swift */; };
 		7588D683263D65700083C03F /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D682263D65700083C03F /* ErrorModel.swift */; };
 		7588D686263D689E0083C03F /* GetPlacesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D685263D689E0083C03F /* GetPlacesRequestModel.swift */; };
 		7588D689263D698B0083C03F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D688263D698B0083C03F /* Constants.swift */; };
-		7588D68C263D6F110083C03F /* GetPlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D68B263D6F110083C03F /* GetPlacesResponse.swift */; };
+		7588D68C263D6F110083C03F /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7588D68B263D6F110083C03F /* CityModel.swift */; };
 		75FC1A28263969A400FC0DF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC1A27263969A400FC0DF8 /* AppDelegate.swift */; };
 		75FC1A2C263969A500FC0DF8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC1A2B263969A500FC0DF8 /* MapViewController.swift */; };
 		75FC1A31263969A800FC0DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FC1A30263969A800FC0DF8 /* Assets.xcassets */; };
@@ -50,6 +51,8 @@
 		75530AD5263DE06E003083E3 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		75530AD8263DEC8B003083E3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		75530ADC263DF165003083E3 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		75530AE0263F5A5B003083E3 /* MapInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInputModel.swift; sourceTree = "<group>"; };
+		75530AE4263F610B003083E3 /* MapRenderingComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRenderingComponents.swift; sourceTree = "<group>"; };
 		7573CE6E263D52A30097AAA0 /* DestinationSelectionAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSelectionAssembly.swift; sourceTree = "<group>"; };
 		7573CE72263D52AE0097AAA0 /* DestinationSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSelectionController.swift; sourceTree = "<group>"; };
 		7573CE75263D52B60097AAA0 /* DestinationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSelectionView.swift; sourceTree = "<group>"; };
@@ -59,12 +62,11 @@
 		7573CE82263D56510097AAA0 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		7588D675263D64870083C03F /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		7588D679263D64B30083C03F /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
-		7588D67C263D64D60083C03F /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		7588D67F263D64EA0083C03F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7588D682263D65700083C03F /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		7588D685263D689E0083C03F /* GetPlacesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesRequestModel.swift; sourceTree = "<group>"; };
 		7588D688263D698B0083C03F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		7588D68B263D6F110083C03F /* GetPlacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesResponse.swift; sourceTree = "<group>"; };
+		7588D68B263D6F110083C03F /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		75FC1A24263969A400FC0DF8 /* AviasalesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AviasalesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FC1A27263969A400FC0DF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75FC1A2B263969A500FC0DF8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -97,14 +99,24 @@
 			isa = PBXGroup;
 			children = (
 				75530AC3263DC70D003083E3 /* MapAssembly.swift */,
+				75530AE0263F5A5B003083E3 /* MapInputModel.swift */,
 				75FC1A2B263969A500FC0DF8 /* MapViewController.swift */,
 				75FC1A4326396A9700FC0DF8 /* MapView.swift */,
 				75530AC8263DC71A003083E3 /* MapPresenter.swift */,
 				75530ACB263DC72A003083E3 /* MapRouter.swift */,
 				75530ACE263DC730003083E3 /* MapProtocols.swift */,
 				75530AD5263DE06E003083E3 /* CustomAnnotation.swift */,
+				75530AE4263F610B003083E3 /* MapRenderingComponents.swift */,
 			);
 			path = MapOverview;
+			sourceTree = "<group>";
+		};
+		75530AE926402169003083E3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75530ADC263DF165003083E3 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7573CE6C263D52870097AAA0 /* DestinationSelection */ = {
@@ -125,11 +137,11 @@
 		7573CE81263D56470097AAA0 /* BaseComponents */ = {
 			isa = PBXGroup;
 			children = (
+				75530AE926402169003083E3 /* Extensions */,
 				75FC1A27263969A400FC0DF8 /* AppDelegate.swift */,
 				7573CE82263D56510097AAA0 /* BaseRouter.swift */,
 				75530ABF263DC394003083E3 /* Debouncer.swift */,
 				75530AD8263DEC8B003083E3 /* Colors.swift */,
-				75530ADC263DF165003083E3 /* UIView+Extensions.swift */,
 			);
 			path = BaseComponents;
 			sourceTree = "<group>";
@@ -140,7 +152,6 @@
 				7588D68E263D70B40083C03F /* Places */,
 				7588D675263D64870083C03F /* ServiceManager.swift */,
 				7588D679263D64B30083C03F /* RequestModel.swift */,
-				7588D67C263D64D60083C03F /* ResponseModel.swift */,
 				7588D682263D65700083C03F /* ErrorModel.swift */,
 				7588D67F263D64EA0083C03F /* NetworkService.swift */,
 				7588D688263D698B0083C03F /* Constants.swift */,
@@ -151,7 +162,7 @@
 		7588D68E263D70B40083C03F /* Places */ = {
 			isa = PBXGroup;
 			children = (
-				7588D68B263D6F110083C03F /* GetPlacesResponse.swift */,
+				7588D68B263D6F110083C03F /* CityModel.swift */,
 				7588D685263D689E0083C03F /* GetPlacesRequestModel.swift */,
 			);
 			path = Places;
@@ -265,7 +276,7 @@
 				75530ABB263D8406003083E3 /* DestinationCell.swift in Sources */,
 				7573CE73263D52AE0097AAA0 /* DestinationSelectionController.swift in Sources */,
 				75530ACF263DC730003083E3 /* MapProtocols.swift in Sources */,
-				7588D68C263D6F110083C03F /* GetPlacesResponse.swift in Sources */,
+				7588D68C263D6F110083C03F /* CityModel.swift in Sources */,
 				75530AD9263DEC8B003083E3 /* Colors.swift in Sources */,
 				75FC1A2C263969A500FC0DF8 /* MapViewController.swift in Sources */,
 				75530AD3263DCC95003083E3 /* CityViewModel.swift in Sources */,
@@ -279,10 +290,11 @@
 				7573CE7F263D55020097AAA0 /* DestinationSelectionProtocols.swift in Sources */,
 				75530AC0263DC394003083E3 /* Debouncer.swift in Sources */,
 				7573CE83263D56510097AAA0 /* BaseRouter.swift in Sources */,
+				75530AE1263F5A5B003083E3 /* MapInputModel.swift in Sources */,
 				7573CE7C263D52CA0097AAA0 /* DestinationSelectionRouter.swift in Sources */,
-				7588D67D263D64D60083C03F /* ResponseModel.swift in Sources */,
 				75FC1A28263969A400FC0DF8 /* AppDelegate.swift in Sources */,
 				7573CE6F263D52A30097AAA0 /* DestinationSelectionAssembly.swift in Sources */,
+				75530AE5263F610B003083E3 /* MapRenderingComponents.swift in Sources */,
 				7588D67A263D64B30083C03F /* RequestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

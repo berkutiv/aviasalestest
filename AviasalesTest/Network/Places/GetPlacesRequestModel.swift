@@ -20,7 +20,7 @@ class GetPlacesRequestModel: RequestModel {
     }
 
     override var path: String {
-        return Constants.NetworkPaths.places
+        return Constants.NetworkPaths.places.rawValue
     }
 
     override var parameters: [String : Any?] {
@@ -28,4 +28,5 @@ class GetPlacesRequestModel: RequestModel {
             "term": text
         ]
     }
+    
 }

@@ -10,7 +10,7 @@ import MapKit
 protocol MapViewInput: AnyObject {
     var customView: MapView { get }
 
-    func setAnnotations(polyline: MKGeodesicPolyline, annotations: [CustomAnnotation], region: MKCoordinateRegion)
+    func setMapComponents(mapRenderingComponents: MapRenderingComponents)
 }
 
 protocol MapViewOutput: AnyObject {

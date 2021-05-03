@@ -22,12 +22,14 @@ class ErrorModel: Error {
     init(_ messageKey: String) {
         self.messageKey = messageKey
     }
+    
 }
 
 extension ErrorModel {
 
-    class func generalError() -> ErrorModel {
+    static func generalError() -> ErrorModel {
         return ErrorModel(ErrorKey.general.rawValue)
     }
+
 }
 

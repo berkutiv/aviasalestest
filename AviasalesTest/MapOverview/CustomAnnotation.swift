@@ -25,5 +25,4 @@ final class CustomAnnotation: NSObject, MKAnnotation {
         self.image = image
         super.init()
     }
-
 }

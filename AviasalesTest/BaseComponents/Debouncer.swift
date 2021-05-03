@@ -26,4 +26,5 @@ class Debouncer {
     @objc func fireNow() {
         self.callback?()
     }
+    
 }

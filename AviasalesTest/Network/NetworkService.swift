@@ -7,10 +7,15 @@
 
 import Foundation
 
-class NetworkService {
+protocol NetworkService {
+    func places(text: String, completion: @escaping(Result<[CityModel], ErrorModel>) -> Void) -> URLSessionDataTask
+}
 
-    class func places(text: String, completion: @escaping(Swift.Result<[CityModel], ErrorModel>) -> Void) -> URLSessionDataTask {
+class NetworkServiceImpl: NetworkService {
+
+    func places(text: String, completion: @escaping(Result<[CityModel], ErrorModel>) -> Void) -> URLSessionDataTask {
         let request = ServiceManager.shared.sendRequest(request: GetPlacesRequestModel(text: text), completion: completion)
         return request
     }
+
 }

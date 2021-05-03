@@ -9,10 +9,10 @@ import UIKit
 
 final class MapAssembly {
 
-    func configureModule(startCity: CityViewModel, destinationCity: CityViewModel) -> UIViewController {
+    func configureModule(mapInputModel: MapInputModel) -> UIViewController {
         let controller = MapViewController()
         let router = MapRouter(viewController: controller)
-        let presenter = MapPresenter(startCity: startCity, destinationCity: destinationCity)
+        let presenter = MapPresenter(mapInputModel: mapInputModel)
 
         presenter.router = router
         presenter.view = controller
@@ -20,4 +20,5 @@ final class MapAssembly {
 
         return controller
     }
+    
 }

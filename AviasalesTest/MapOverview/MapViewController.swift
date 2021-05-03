@@ -9,13 +9,20 @@ import UIKit
 import MapKit
 
 final class MapViewController: UIViewController {
-    private(set) lazy var customView = view as! MapView
+
+    // MARK: - Public Properties
+
     var output: MapViewOutput!
 
+    // MARK: - Private Properties
+
+    private(set) lazy var customView = view as! MapView
     private var geodesicPolyline: MKGeodesicPolyline?
     private var planeAnnotation: CustomAnnotation?
     private var planeMovingStep = 15
     private var currentPlanePosition = 0
+
+    // MARK: - Lifecycle
 
     override func loadView() {
         view = MapView()
@@ -26,6 +33,8 @@ final class MapViewController: UIViewController {
         configure()
         output.viewDidLoad()
     }
+
+    // MARK: - Private methods
 
     private func configure() {
         customView.mapView.delegate = self
@@ -65,27 +74,40 @@ final class MapViewController: UIViewController {
         let angle = CLLocationDirection(radiansToDegrees(CGFloat(atan2(y, x))).truncatingRemainder(dividingBy: 360))
         return angle
     }
+
+    private func radiansToDegrees(_ radians: CGFloat) -> CGFloat {
+        return radians * 180 / .pi
+    }
+
+    private func degreesToRadians(_ degrees: CGFloat) -> CGFloat {
+        return degrees * .pi / 180
+    }
+
 }
 
+// MARK: - MapViewInput
+
 extension MapViewController: MapViewInput {
-    func setAnnotations(polyline: MKGeodesicPolyline, annotations: [CustomAnnotation], region: MKCoordinateRegion) {
-        geodesicPolyline = polyline
-        customView.mapView.addOverlay(polyline)
 
-        annotations.forEach { (annotation) in
-            if annotation.type == .plane {
-                planeAnnotation = annotation
-            }
-            customView.mapView.addAnnotation(annotation)
-        }
+    func setMapComponents(mapRenderingComponents: MapRenderingComponents) {
+        geodesicPolyline = mapRenderingComponents.polyline
+        customView.mapView.addOverlay(mapRenderingComponents.polyline)
 
-        customView.mapView.setRegion(region, animated: true)
+        customView.mapView.addAnnotations(mapRenderingComponents.cityAnnotations)
+
+        planeAnnotation = mapRenderingComponents.planeAnnotation
+        customView.mapView.addAnnotation(mapRenderingComponents.planeAnnotation)
+
+        customView.mapView.setRegion(mapRenderingComponents.region, animated: true)
         updatePlanePosition()
     }
 
 }
 
+// MARK: - MKMapViewDelegate
+
 extension MapViewController: MKMapViewDelegate {
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let polyline = overlay as? MKGeodesicPolyline {
             let renderer = MKPolylineRenderer(polyline: polyline)
@@ -105,16 +127,12 @@ extension MapViewController: MKMapViewDelegate {
                 ?? MKAnnotationView(annotation: annotation, reuseIdentifier: customAnnotation.type.rawValue)
 
         annotationView.image = customAnnotation.image
+
+        if customAnnotation.type == .plane {
+            annotationView.isSelected = true
+        }
+
         return annotationView
     }
-}
 
-extension MapViewController {
-    private func radiansToDegrees(_ radians: CGFloat) -> CGFloat {
-        return radians * 180 / .pi
-    }
-
-    private func degreesToRadians(_ degrees: CGFloat) -> CGFloat {
-        return degrees * .pi / 180
-    }
 }

@@ -10,11 +10,15 @@ import MapKit
 
 final class MapView: UIView {
 
+    // MARK: - Private Properties
+
     private(set) lazy var mapView: MKMapView = {
        let view = MKMapView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,6 +29,8 @@ final class MapView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - Private methods
 
     private func setup() {
         backgroundColor = UIColor.white
@@ -38,4 +44,5 @@ final class MapView: UIView {
             mapView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
 }

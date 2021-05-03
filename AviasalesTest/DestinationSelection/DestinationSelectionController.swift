@@ -8,11 +8,18 @@
 import UIKit
 
 final class DestinationSelectionController: UIViewController {
-    private(set) lazy var customView = view as! DestinationSelectionView
+
+    // MARK: - Public Properties
 
     var output: DestinationSelectionViewOutput!
+
+    // MARK: - Private Properties
+
+    private(set) lazy var customView = view as! DestinationSelectionView
     private var dataSource = [CityViewModel]()
     private var debouncer = Debouncer(delay: 1)
+
+    // MARK: - Lifecycle
 
     override func loadView() {
         view = DestinationSelectionView()
@@ -23,11 +30,9 @@ final class DestinationSelectionController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Enter destination"
         configure()
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleScreenTap))
-        tapGesture.cancelsTouchesInView = false
-        view.addGestureRecognizer(tapGesture)
     }
+
+    // MARK: - Private methods
 
     private func configure() {
         customView.destinationTextField.addTarget(self, action: #selector(destinationTextChanged), for: .editingChanged)
@@ -43,10 +48,9 @@ final class DestinationSelectionController: UIViewController {
         }
     }
 
-    @objc private func handleScreenTap() {
-        view.endEditing(true)
-    }
 }
+
+// MARK: - DestinationSelectionViewInput
 
 extension DestinationSelectionController: DestinationSelectionViewInput {
 
@@ -62,9 +66,13 @@ extension DestinationSelectionController: DestinationSelectionViewInput {
         customView.activityIndicator.stopAnimating()
         customView.tableView.reloadData()
     }
+
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
+
 extension DestinationSelectionController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count
     }
@@ -74,6 +82,7 @@ extension DestinationSelectionController: UITableViewDataSource, UITableViewDele
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DestinationCell.reuseIdentifier, for: indexPath) as? DestinationCell else {
             return UITableViewCell()
         }
+
         cell.configure(with: model)
         return cell
     }
@@ -83,4 +92,5 @@ extension DestinationSelectionController: UITableViewDataSource, UITableViewDele
         let model = dataSource[indexPath.row]
         output.didSelectCity(cityModel: model)
     }
+
 }

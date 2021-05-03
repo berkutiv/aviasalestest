@@ -12,7 +12,7 @@ final class DestinationSelectionAssembly {
     func configureModule() -> UIViewController {
         let controller = DestinationSelectionController()
         let router = DestinationSelectionRouter(viewController: controller)
-        let presenter = DestinationSelectionPresenter()
+        let presenter = DestinationSelectionPresenter(client: NetworkServiceImpl())
 
         presenter.router = router
         presenter.view = controller
@@ -20,4 +20,5 @@ final class DestinationSelectionAssembly {
 
         return controller
     }
+    
 }
